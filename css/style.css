@@ -1,249 +1,289 @@
 /* ==========================================================================
-   1. RESET DAN VARIABEL DASAR
+   1. RESET DAN DASAR (Mobile-First)
    ========================================================================== */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 :root {
-  --bg-main: #1e1512;        /* Cokelat gelap utama */
-  --bg-card: #281d18;        /* Cokelat kartu */
-  --bg-light: #241a15;       /* Cokelat kontras section */
-  --accent: #d97706;         /* Amber / Oranye elegan */
-  --accent-hover: #b45309;   /* Oranye gelap hover */
-  --text-main: #f3f4f6;      /* Teks terang */
-  --text-muted: #9ca3af;     /* Teks abu-abu */
-  --border-color: #3e2d26;   /* Garis batas */
+    --bg-main: #1e1512;        /* Cokelat gelap utama */
+    --bg-card: #281d18;        /* Cokelat kartu */
+    --bg-light: #241a15;       /* Cokelat kontras section */
+    --accent: #d97706;         /* Amber / Oranye elegan */
+    --accent-hover: #b45309;   /* Oranye gelap hover */
+    --text-main: #f3f4f6;      /* Teks terang */
+    --text-muted: #9ca3af;     /* Teks abu-abu */
+    --border-color: #3e2d26;   /* Garis batas */
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif, system-ui, -apple-system, sans-serif;
-  background-color: var(--bg-main);
-  color: var(--text-main);
-  line-height: 1.6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-main);
+    color: var(--text-main);
 }
 
 img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
 }
 
+/* Wadah Utama */
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+    width: 100%;
+    max-width: 1100px;
+    padding: 0 1.5rem;
+    margin: 0 auto;
 }
 
 /* ==========================================================================
-   2. HEADER & NAVIGASI (DENGAN TOMBOL KEMBALI DI KIRI)
+   2. HEADER & NAVIGASI (Flexbox + Tombol Kembali di Kiri)
    ========================================================================== */
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background-color: rgba(30, 21, 18, 0.95);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border-color);
-  padding: 1rem 0;
+    background-color: rgba(30, 21, 18, 0.95);
+    backdrop-filter: blur(8px);
+    color: var(--text-main);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
 }
 
-/* Pembungkus sisi kiri: Tombol Kembali & Logo */
+/* Pembungkus Sisi Kiri (Tombol Kembali & Logo) */
 .header-left {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
 }
 
-/* Tombol Kembali (Kecil, Berbentuk Lingkaran Elegan) */
+/* Tombol Kembali (Kecil, Bulat, dan Rapi di Kiri) */
 .back-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-color);
-  color: var(--text-main);
-  font-size: 0.8rem;
-  flex-shrink: 0;
-  transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
 }
 
 .back-btn:hover {
-  background-color: rgba(217, 119, 6, 0.2);
-  border-color: var(--accent);
-  color: var(--accent);
+    background-color: rgba(217, 119, 6, 0.2);
+    border-color: var(--accent);
+    color: var(--accent);
 }
 
 .logo {
-  font-weight: 800;
-  font-size: 1.05rem;
-  letter-spacing: 0.5px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
 }
 
-nav {
-  display: flex;
-  gap: 1rem;
-  font-size: 0.85rem;
-  font-weight: 600;
+.site-header nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-nav a:hover {
-  color: var(--accent);
+.site-header nav a {
+    color: var(--text-muted);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.site-header nav a:hover {
+    color: var(--accent);
 }
 
 /* ==========================================================================
-   3. HERO / TENTANG SECTION
+   3. BAGIAN HERO / TENTANG (Flexbox)
    ========================================================================== */
 .hero {
-  padding: 3rem 0;
+    padding: 3rem 0;
+    background-color: var(--bg-card);
+    background-image: radial-gradient(rgba(217, 119, 6, 0.15) 1px, transparent 1px);
+    background-size: 24px 24px;
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
 }
 
 .hero-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
 }
 
 .hero img {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--accent);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--accent);
+    box-shadow: 0 4px 10px rgba(217, 119, 6, 0.3);
 }
 
 .hero-text h1 {
-  font-size: clamp(1.6rem, 4vw, 2.3rem);
-  font-weight: 800;
-  margin-bottom: 0.75rem;
+    font-size: 2rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
 }
 
 .hero-text p {
-  color: var(--text-muted);
-  max-width: 700px;
-  margin: 0 auto;
-  font-size: 0.95rem;
+    color: var(--text-muted);
+    max-width: 600px;
 }
 
 /* ==========================================================================
-   4. KEAHLIAN & PORTOSES (GRID SECTIONS)
+   4. BAGIAN KEAHLIAN & PORTFOLIO (CSS Grid)
    ========================================================================== */
 .skills, .gallery {
-  padding: 3rem 0;
-  background-color: var(--bg-light);
-  border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
+    padding: 3.5rem 0;
+    background-color: var(--bg-light);
 }
 
 .skills h2, .gallery h2 {
-  text-align: center;
-  font-size: 1.6rem;
-  font-weight: 800;
-  margin-bottom: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--text-main);
+    font-size: 1.75rem;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
+/* Grid 1 Kolom untuk Mobile */
+.skills .grid-container, 
+.gallery .grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
 }
 
-.card, figure {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  padding: 1.5rem;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+/* Kartu Keahlian */
+.card {
+    background: var(--bg-card);
+    padding: 1.75rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--accent);
+    transition: transform 0.2s, border-color 0.2s;
 }
 
-.card:hover, figure:hover {
-  transform: translateY(-5px);
-  border-color: var(--accent);
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
 }
 
 .card h3 {
-  font-size: 1.15rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: var(--accent);
+    color: var(--accent);
+    margin-bottom: 0.75rem;
 }
 
 .card p {
-  color: var(--text-muted);
-  font-size: 0.875rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Kartu Galeri / Portofolio */
+.gallery figure {
+    background: var(--bg-card);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.gallery figure:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.gallery img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.gallery figcaption {
+    padding: 1.25rem;
+    text-align: center;
+    font-weight: 600;
+    color: var(--text-main);
 }
 
 /* ==========================================================================
-   5. GALERI / PROYEK
-   ========================================================================== */
-figure img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-}
-
-figcaption {
-  font-size: 0.875rem;
-  color: var(--text-main);
-  font-weight: 600;
-  text-align: center;
-}
-
-/* ==========================================================================
-   6. FOOTER
+   5. FOOTER
    ========================================================================== */
 .site-footer {
-  text-align: center;
-  padding: 2rem 0;
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  border-top: 1px solid var(--border-color);
+    background-color: var(--bg-card);
+    color: var(--text-muted);
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 0;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
 }
 
 /* ==========================================================================
-   7. RESPONSIVE MEDIA QUERIES (TABLET & DESKTOP)
+   6. MEDIA QUERY (Responsif)
    ========================================================================== */
-@media (min-width: 640px) {
-  .grid-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .hero-container {
-    flex-direction: row;
-    text-align: left;
-  }
-  .hero-text p {
-    margin: 0;
-  }
-  nav {
-    gap: 1.25rem;
-    font-size: 0.9rem;
-  }
+
+/* Tablet (min-width: 768px) */
+@media (min-width: 768px) {
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .site-header nav {
+        flex-direction: row;
+        gap: 1.5rem;
+    }
+
+    .hero-container {
+        flex-direction: row;
+        text-align: left;
+        padding: 0 2rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    /* Grid Berubah Menjadi 2 Kolom */
+    .skills .grid-container, 
+    .gallery .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
+/* Desktop (min-width: 1024px) */
 @media (min-width: 1024px) {
-  .grid-container {
-    grid-template-columns: repeat(3, 1fr);
-  }
+    /* Grid Berubah Menjadi 3 Kolom */
+    .skills .grid-container, 
+    .gallery .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
