@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil - Aisyah Nabila Maharani </title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Header & Navigasi menggunakan Flexbox -->
+  <header class="site-header">
+    <div class="container header-container">
+      <div class="logo">Portofolio Saya</div>
+      <nav>
+        <a href="#tentang">Tentang</a>
+        <a href="#keahlian">Keahlian</a>
+        <a href="#portofolio">Portofolio</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Bagian Hero / Tentang (Flexbox) -->
+    <section id="tentang" class="hero">
+      <div class="container hero-container">
+        <img src="3.AISYAH.jpeg" alt="Foto Profil">
+        <div class="hero-text">
+          <h1>Halo, Saya Aisyah Nabila Maharani</h1>
+          <p>Saya adalah seorang pelajar di Konsentrasi Rekayasa Perangkat Lunak SMKS Brantas Karangkates yang antusias
+            dalam mempelajari pengembangan web responsif, antarmuka modern, dan teknologi digital.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bagian Keahlian (CSS Grid dengan minimal 3 kartu) -->
+    <section id="keahlian" class="skills">
+      <div class="container">
+        <h2>Keahlian Saya</h2>
+        <div class="grid-container">
+          <article class="card">
+            <h3>HTML & CSS</h3>
+            <p>Membuat struktur halaman web semantik dan menata gaya tampilan secara responsif.</p>
+          </article>
+          <article class="card">
+            <h3>JavaScript</h3>
+            <p>Menambahkan interaktivitas dan logika dasar pada halaman web agar lebih dinamis.</p>
+          </article>
+          <article class="card">
+            <h3>Git & GitHub</h3>
+            <p>Mengelola versi kode sumber dan melakukan kolaborasi proyek secara online.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bagian Portofolio / Galeri (CSS Grid dengan minimal 3 item) -->
+    <section id="portofolio" class="gallery">
+      <div class="container">
+        <h2>Portofolio</h2>
+        <div class="grid-container">
+          <figure>
+            <img src="1.jpeg" alt="Proyek 1">
+            <figcaption>Proyek Visualisasi Grafis Python (Matplotlib) </figcaption>
+          </figure>
+          <figure>
+            <img src="2.jpeg" alt="Proyek 2">
+            <figcaption>Proyek CustumTkinteer & Pillow ImageDraw </figcaption>
+          </figure>
+          <figure>
+            <img src="3.jpeg" alt="Proyek 3">
+            <figcaption>Proyek Deteksi Tabrakan (Collision Detection) & Studi Kasus Ular Bertambah Panjang</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Aisyah Nabila Maharani . SMKS Brantas Karangkates.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
